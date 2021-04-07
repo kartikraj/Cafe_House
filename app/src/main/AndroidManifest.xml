@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cafe_house">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Cafe_House">
+        <activity android:name=".Order_Screen_Misal"></activity>
+        <activity android:name=".Order_Screen_Roganjosh" />
+        <activity android:name=".Order_Screen_Dosa" />
+        <activity android:name=".Order_Screen_Pooran" />
+        <activity android:name=".Order_Screen_Biryani" />
+        <activity android:name=".Order_Screen_Idli" />
+        <activity android:name=".Order_Screen_Pithla" />
+        <activity android:name=".Order_Screen_Modurpulav" />
+        <activity android:name=".Order_Screen_Kadhi" />
+        <activity android:name=".Order_Screen_Pongal" />
+        <activity android:name=".Menu_screen" />
+        <activity android:name=".SignIn_Activity" />
+        <activity android:name=".SignUp_Activity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
