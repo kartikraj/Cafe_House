@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Cafe_House</string>
+    <string name="cart">Add to cart</string>
 </resources>

@@ -6,39 +6,52 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Order_Screen_Pongal extends AppCompatActivity {
-    private Button _decrease;
-    private Button _increase;
-    private TextView _value;
-    private static int _counter = 1;
-    private String _stringval;
+    private Button _decrease,_increase;
+    TextView totalprice,quant;
+    Button addtocart;
+
+    int _counter = 1;
+    String _stringval,count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_pongal);
 
-        _decrease = (Button) findViewById(R.id.minus);
-        _increase = (Button) findViewById(R.id.plus);
-        _value = (TextView) findViewById(R.id.quantity);
+        _decrease =  findViewById(R.id.minus);
+        _increase =  findViewById(R.id.plus);
+        quant = findViewById(R.id.quantity);
+        totalprice = findViewById(R.id.price);
 
         _decrease.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-
-                _counter --;
-                _stringval = Integer.toString(_counter);
-                _value.setText(_stringval);
+                int baseprice= 149;
+                if(_counter==0){
+                    Toast.makeText(Order_Screen_Pongal.this, "Cant decrease quantity < 0", Toast.LENGTH_SHORT).show();
+                }else {
+                    _counter--;
+                    //       displayQuantity();
+                    int total = baseprice*_counter;
+                    _stringval = Integer.toString(total);
+                    count =Integer.toString(_counter);
+                    quant.setText(count);
+                    totalprice.setText("Rs."+_stringval+"/-");
+                }
             }
         });
 
         _increase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                _counter ++;
-                _stringval = Integer.toString(_counter);
-                _value.setText(_stringval);
+                _counter++;
+                int baseprice= 149;
+                int total = baseprice*_counter;
+                _stringval = Integer.toString(total);
+                count = Integer.toString(_counter);
+                quant.setText(count);
+                totalprice.setText("Rs."+_stringval+"/-");
             }
         });
     }
