@@ -58,7 +58,7 @@
                     android:foregroundGravity="center" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/fullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
@@ -73,7 +73,7 @@
                     android:textColorHint="#403E3E" />
 
                 <EditText
-                    android:id="@+id/editTextPhone"
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -86,7 +86,7 @@
                     android:textColorHint="#403E3E" />
 
                 <EditText
-                    android:id="@+id/editTextTextEmailAddress"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -99,7 +99,7 @@
                     android:textColorHint="#403E3E" />
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -112,7 +112,7 @@
                     android:textColorHint="#403E3E" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/log"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -208,6 +208,14 @@
                     android:clickable="true"
                     android:textColor="#000000"
                     android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:visibility="invisible" />
 
             </LinearLayout>
         </ScrollView>

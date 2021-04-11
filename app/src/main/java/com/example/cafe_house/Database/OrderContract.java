@@ -8,7 +8,7 @@ public class OrderContract {
     public OrderContract(){
     }
 
-    public static final String CONTENT_AUTHORITY ="com.example.cafe_house.Database";
+    public static final String CONTENT_AUTHORITY ="com.example.cafe_house";
     public static final Uri BASE_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     // this should be similar to your table name
@@ -24,6 +24,7 @@ public class OrderContract {
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_QUANTITY = "quantity";
         public static final String COLUMN_PRICE = "price";
+        public  static  final String COLUMN_SP = "indiprice";
     }
 
 }

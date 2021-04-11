@@ -7,6 +7,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.util.Log;
 
 
 public class OrderProvider extends ContentProvider {
@@ -71,6 +72,7 @@ public class OrderProvider extends ContentProvider {
 
     }
 
+
     private Uri insertCart(Uri uri, ContentValues values) {
 
         String name = values.getAsString(OrderContract.OrderEntry.COLUMN_NAME);
@@ -87,6 +89,11 @@ public class OrderProvider extends ContentProvider {
         if(price == null) {
             throw new IllegalArgumentException("price is Required");
         }
+        String indiprice = values.getAsString(OrderContract.OrderEntry.COLUMN_SP);
+        if(indiprice == null) {
+            throw new IllegalArgumentException("price is Required");
+        }
+
 
         // SINCE WE ARE INSERTING DATA IN DATABASE SO NOW WE ARE WRITING ON DATABASE
 
@@ -94,6 +101,7 @@ public class OrderProvider extends ContentProvider {
         long id = database.insert(OrderContract.OrderEntry.TABLE_NAME, null, values);
 
         if (id == -1) {
+
             return null;
         }
         getContext().getContentResolver().notifyChange(uri, null);

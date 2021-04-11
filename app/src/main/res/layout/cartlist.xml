@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/orderSummary"
-        android:text="Food Name"
-        android:textStyle="bold"
         android:id="@+id/foodNameinOrderSummary"
-        android:layout_marginLeft="10dp"/>
-
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/orderSummary"
-        android:layout_toRightOf="@+id/foodNameinOrderSummary"
-        android:text="x"
-        android:textStyle="bold"
-        android:id="@+id/quantityinOrderSummary"
+        android:layout_marginLeft="10dp"
+        android:text="Food Name"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/singleprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs.20"
+        android:layout_below="@id/foodNameinOrderSummary"
         android:layout_marginLeft="10dp"/>
 
+    <TextView
+        android:id="@+id/quantityinOrderSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/orderSummary"
+        android:layout_alignParentRight="true"
+        android:text="x" />
 
 
     <TextView
+        android:id="@+id/priceinOrderSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/quantityinOrderSummary"
         android:layout_alignParentRight="true"
         android:text="Rs.10/-"
-        android:id="@+id/priceinOrderSummary"
-        android:layout_marginRight="10dp"/>
+        android:textColor="#4CAF50"
+        android:textStyle="bold" />
 
 
 
 </RelativeLayout>
+

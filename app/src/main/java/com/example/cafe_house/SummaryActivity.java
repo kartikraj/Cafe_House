@@ -1,61 +1,67 @@
 package com.example.cafe_house;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.CursorLoader;
-import androidx.loader.content.Loader;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.cafe_house.Database.OrderContract;
+import com.example.cafe_house.Database.OrderHelper;
+
+import java.util.ArrayList;
 
 
-public class SummaryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class SummaryActivity extends AppCompatActivity  {
 
-    public CartAdapter mAdapter;
-    public static final int LOADER = 0;
+    OrderHelper mydb;
+    ArrayList<User> userList;
+    ListView listView;
+    User user;
+    TextView t;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
+        getSupportActionBar().setTitle("Cart");
 
+        mydb = new OrderHelper(this);
+        Button clearthedata = findViewById(R.id.clearthedatabase);
 
+        userList = new ArrayList<>();
+        Cursor data=mydb.getListContents();
+       // int total = mydb.getSumValue();
+        t= findViewById(R.id.Total);
+        if(data.getCount() ==0){
+            Toast.makeText(SummaryActivity.this,"Cart is empty  ",Toast.LENGTH_SHORT).show();
+        }else{
+            while(data.moveToNext()){
+                user = new User(data.getString(1),data.getString(2),data.getString(3),data.getString(4));
+                userList.add(user);
+            }
+            ThreeColumn_ListAdapter adapter = new ThreeColumn_ListAdapter(this, R.layout.cartlist, userList);
+            listView = (ListView) findViewById(R.id.list);
+            listView.setAdapter(adapter);
+        }
 
+       // String a =Integer.toString(total);
+        //t.setText(a);
+        clearthedata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int deletethedata = getContentResolver().delete(OrderContract.OrderEntry.CONTENT_URI, null, null);
 
+                recreate();
+            }
+        });
 
-        ListView listView = findViewById(R.id.list);
-        mAdapter = new CartAdapter(this, null);
-        listView.setAdapter(mAdapter);
-
-
-
-    }
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] projection = {OrderContract.OrderEntry._ID,
-                OrderContract.OrderEntry.COLUMN_NAME,
-                OrderContract.OrderEntry.COLUMN_PRICE,
-                OrderContract.OrderEntry.COLUMN_QUANTITY,
-
-        };
-
-        return new CursorLoader(this, OrderContract.OrderEntry.CONTENT_URI,
-                projection,
-                null,
-                null,
-                null);
-
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        mAdapter.swapCursor(data);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-
-        mAdapter.swapCursor(null);
     }
 }

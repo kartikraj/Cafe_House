@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cafe_House">
-        <activity android:name=".SummaryActivity"></activity>
+        <activity
+            android:name=".Nav_Activity"
+            android:label="@string/title_activity_nav_"
+            android:theme="@style/Theme.Cafe_House.NoActionBar"></activity>
+        <activity android:name=".SummaryActivity" />
         <activity android:name=".Order_Screen_Misal" />
         <activity android:name=".Order_Screen_Roganjosh" />
         <activity android:name=".Order_Screen_Dosa" />
@@ -24,7 +28,6 @@
         <activity android:name=".Order_Screen_Modurpulav" />
         <activity android:name=".Order_Screen_Kadhi" />
         <activity android:name=".Order_Screen_Pongal" />
-        <activity android:name=".Menu_screen" />
         <activity android:name=".SignIn_Activity" />
         <activity android:name=".SignUp_Activity" />
         <activity android:name=".MainActivity">
@@ -37,7 +40,8 @@
 
         <provider
             android:name=".Database.OrderProvider"
-            android:authorities="com.example.orderapp"
+            android:authorities="com.example.cafe_house"
+            android:enabled="true"
             android:exported="true" />
     </application>
 

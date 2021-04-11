@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".SummaryActivity">
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:id="@+id/ordercard"
+        android:layout_height="650dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         android:layout_margin="10dp">
@@ -25,33 +25,46 @@
                 android:layout_marginTop="10dp"
                 android:textSize="30sp"
                 android:id="@+id/orderSummary"
-                android:text="ORDER SUMMARY"/>
+                android:text="YOUR ORDERS"/>
 
 
 
             <ListView
                 android:layout_width="match_parent"
-                android:paddingTop="40dp"
+                android:paddingTop="60dp"
                 android:layout_height="match_parent"
                 android:id="@+id/list"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_centerInParent="true"
-                android:text="Cancel the Order"
-                android:textColor="@android:color/white"
-                android:background="@android:color/holo_red_dark"
-                android:id="@+id/clearthedatabase"
-                android:layout_alignParentBottom="true"/>
+
         </RelativeLayout>
 
-
-
-
-
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/clearthedatabase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/gcolor"
+        android:text="Cancel the Order"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#9F3939"
+        app:backgroundTint="#F44336" />
+
+    <TextView
+        android:id="@+id/Total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ordercard"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/clearthedatabase"
+        android:text="Total"
+        android:textSize="30dp" />
 
 </RelativeLayout>
